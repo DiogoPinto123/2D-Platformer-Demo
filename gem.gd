@@ -6,6 +6,7 @@ func _ready():
 
 func _on_body_entered(body):
 	if body.name == "Player":
+		get_node("GemPickupSound").play()
 		get_node("CollisionShape2D").set_deferred("disabled",true)
 		Game.playerGems += 1
 		Game.playerScore += 100

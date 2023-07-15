@@ -48,7 +48,7 @@ func _on_player_death_body_entered(body):
 
 func _on_player_collision_body_entered(body):
 	if body.name == "Player" && dead == false:
-		Game.playerHP -= 3
+		Game.playerHP -= 1
 		death()
 
 

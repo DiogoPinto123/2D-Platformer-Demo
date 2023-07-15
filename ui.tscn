@@ -1,0 +1,103 @@
+[gd_scene load_steps=16 format=3 uid="uid://dle8tnpx2bms0"]
+
+[ext_resource type="Script" path="res://UI.gd" id="1_7hjlq"]
+[ext_resource type="Script" path="res://HP.gd" id="2_y7yqb"]
+[ext_resource type="Script" path="res://Gems.gd" id="3_c28gf"]
+[ext_resource type="Script" path="res://Score.gd" id="4_87i61"]
+[ext_resource type="Texture2D" uid="uid://dc8ipul1cvmkc" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/sprites/gem/gem-1.png" id="5_bqhxx"]
+[ext_resource type="Texture2D" uid="uid://cfqfts50q40t2" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/sprites/gem/gem-2.png" id="6_fsf8w"]
+[ext_resource type="Texture2D" uid="uid://b7qdao4ir6p5q" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/sprites/gem/gem-3.png" id="7_ix8s2"]
+[ext_resource type="Texture2D" uid="uid://cexpnlktq3cf3" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/sprites/gem/gem-4.png" id="8_5jadj"]
+[ext_resource type="Texture2D" uid="uid://dv15mcd3cd3lb" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/sprites/gem/gem-5.png" id="9_scr25"]
+[ext_resource type="Texture2D" uid="uid://bsdxgifq2mf8v" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/sprites/player/idle/player-idle-1.png" id="10_0h6tl"]
+[ext_resource type="Texture2D" uid="uid://b6r27svq6pq6x" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/sprites/player/idle/player-idle-2.png" id="11_m8u2d"]
+[ext_resource type="Texture2D" uid="uid://qrs2y7em4ru1" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/sprites/player/idle/player-idle-3.png" id="12_7wm4p"]
+[ext_resource type="Texture2D" uid="uid://c3b068fbu4oab" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/sprites/player/idle/player-idle-4.png" id="13_tdfgc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hc21s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_bqhxx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_fsf8w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ix8s2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_5jadj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_scr25")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xvh64"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_0h6tl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_m8u2d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_7wm4p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_tdfgc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_7hjlq")
+
+[node name="Lives" type="Label" parent="."]
+offset_left = 72.0
+offset_top = 24.0
+offset_right = 112.0
+offset_bottom = 61.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "X 3"
+script = ExtResource("2_y7yqb")
+
+[node name="Gems" type="Label" parent="."]
+offset_left = 72.0
+offset_top = 80.0
+offset_right = 138.0
+offset_bottom = 117.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "X 0"
+script = ExtResource("3_c28gf")
+
+[node name="Score" type="Label" parent="."]
+offset_left = 992.0
+offset_top = 8.0
+offset_right = 1139.0
+offset_bottom = 45.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Score: 10000"
+script = ExtResource("4_87i61")
+
+[node name="GemsAnimation" type="AnimatedSprite2D" parent="."]
+position = Vector2(40, 96)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_hc21s")
+frame_progress = 0.409872
+
+[node name="HPAnimation" type="AnimatedSprite2D" parent="."]
+position = Vector2(40, 32)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_xvh64")
+frame_progress = 0.754194

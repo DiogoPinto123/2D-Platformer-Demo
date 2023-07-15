@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://twl24qovo3au"
+path="res://.godot/imported/gem_pickup.mp3-ad1596d6bef1824f648c5fd4ca5eea5f.mp3str"
+
+[deps]
+
+source_file="res://Game Sounds/gem_pickup.mp3"
+dest_files=["res://.godot/imported/gem_pickup.mp3-ad1596d6bef1824f648c5fd4ca5eea5f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

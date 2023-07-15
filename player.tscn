@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://c1ktwdnahe6uo"]
+[gd_scene load_steps=38 format=3 uid="uid://c1ktwdnahe6uo"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_p3e1t"]
 [ext_resource type="Texture2D" uid="uid://decv1iyujjp83" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/sprites/player/climb/player-climb-1.png" id="2_5luaw"]
@@ -9,17 +9,25 @@
 [ext_resource type="Texture2D" uid="uid://lld8ot0o7gbx" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/sprites/player/hurt/player-hurt-1.png" id="7_i1rk5"]
 [ext_resource type="Texture2D" uid="uid://sy7ou1pdq4rj" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/sprites/player/hurt/player-hurt-2.png" id="8_kkyeb"]
 [ext_resource type="Texture2D" uid="uid://dqc3mn2ibr8qs" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/spritesheets/player-idle.png" id="9_mrjcf"]
+[ext_resource type="Texture2D" uid="uid://u21tl43nqjm4" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/sprites/enemy-death/enemy-death-1.png" id="9_v2yfj"]
+[ext_resource type="Texture2D" uid="uid://dqjkfjedibjf2" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/sprites/enemy-death/enemy-death-2.png" id="10_8src7"]
 [ext_resource type="Texture2D" uid="uid://dmysh1nkb4cq7" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/sprites/player/jump/player-jump-1.png" id="10_sq042"]
+[ext_resource type="Texture2D" uid="uid://dp6s8vobmnncw" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/sprites/enemy-death/enemy-death-3.png" id="11_nojmc"]
 [ext_resource type="Texture2D" uid="uid://bkmwitw4yc1oy" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/sprites/player/jump/player-jump-2.png" id="11_uujne"]
 [ext_resource type="Texture2D" uid="uid://doded4p6uft0i" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/sprites/player/run/player-run-1.png" id="12_2hbi7"]
+[ext_resource type="Texture2D" uid="uid://c1ew6i3nrmufy" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/sprites/enemy-death/enemy-death-4.png" id="12_exgsy"]
+[ext_resource type="Texture2D" uid="uid://d04rg154ylma2" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/sprites/enemy-death/enemy-death-5.png" id="13_7udue"]
 [ext_resource type="Texture2D" uid="uid://bn68xegiaew8m" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/sprites/player/run/player-run-2.png" id="13_lsdeh"]
+[ext_resource type="Texture2D" uid="uid://cr2aytrlumg3j" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/sprites/enemy-death/enemy-death-6.png" id="14_1n0vj"]
 [ext_resource type="Texture2D" uid="uid://s8t3tmmke1yh" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/sprites/player/run/player-run-3.png" id="14_dgjxc"]
 [ext_resource type="Texture2D" uid="uid://bia5kpytum3cj" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/sprites/player/run/player-run-4.png" id="15_61ycr"]
 [ext_resource type="Texture2D" uid="uid://75rx86plussv" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/sprites/player/run/player-run-5.png" id="16_244w5"]
 [ext_resource type="Texture2D" uid="uid://bnx4ssd4vhn8" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/sprites/player/run/player-run-6.png" id="17_va1pn"]
+[ext_resource type="AudioStream" uid="uid://br5m8u1d4kwps" path="res://Game Sounds/jump.wav" id="18_f3byv"]
+[ext_resource type="AudioStream" uid="uid://cdoy0eyvvhuh5" path="res://Game Sounds/death.wav" id="19_mmnew"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bglyo"]
-radius = 8.0
+radius = 7.0
 height = 22.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_brkyy"]
@@ -71,8 +79,44 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("8_kkyeb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_i1rk5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_kkyeb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_i1rk5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_kkyeb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_i1rk5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_v2yfj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_8src7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_nojmc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_exgsy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_7udue")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_1n0vj")
+}, {
+"duration": 1.0,
+"texture": null
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 5.0
 }, {
@@ -287,9 +331,15 @@ animation = &"run"
 frame = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1, 0)
+offset = Vector2(0, -30)
 zoom = Vector2(3, 3)
 limit_left = 0
 limit_top = 0
+limit_smoothed = true
+position_smoothing_speed = 1.0
+drag_vertical_enabled = true
+drag_top_margin = 0.8
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"
@@ -298,3 +348,26 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+
+[node name="DeathTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="JumpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_f3byv")
+volume_db = -8.0
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_mmnew")
+
+[node name="1Up" type="Label" parent="."]
+offset_left = -10.0
+offset_top = -25.0
+offset_right = 30.0
+offset_bottom = 1.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 0
+text = "1 UP!"
+
+[connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]

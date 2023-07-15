@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b3p5dtlx02882"]
+[gd_scene load_steps=10 format=3 uid="uid://b3p5dtlx02882"]
 
 [ext_resource type="Texture2D" uid="uid://dc8ipul1cvmkc" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/sprites/gem/gem-1.png" id="1_2umqi"]
 [ext_resource type="Script" path="res://gem.gd" id="1_glt4l"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b7qdao4ir6p5q" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/sprites/gem/gem-3.png" id="3_vrdjs"]
 [ext_resource type="Texture2D" uid="uid://cexpnlktq3cf3" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/sprites/gem/gem-4.png" id="4_4pc1b"]
 [ext_resource type="Texture2D" uid="uid://dv15mcd3cd3lb" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/sprites/gem/gem-5.png" id="5_v102x"]
+[ext_resource type="AudioStream" uid="uid://twl24qovo3au" path="res://Game Sounds/gem_pickup.mp3" id="7_b4e6o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pr5o1"]
 radius = 6.0
@@ -42,5 +43,8 @@ shape = SubResource("CircleShape2D_pr5o1")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_6xxf8")
 frame_progress = 0.3716
+
+[node name="GemPickupSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_b4e6o")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

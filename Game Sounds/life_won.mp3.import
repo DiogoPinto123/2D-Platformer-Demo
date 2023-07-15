@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dmmhshkdkax8l"
+path="res://.godot/imported/life_won.mp3-27931b358cfb828215bc066a6d454018.mp3str"
+
+[deps]
+
+source_file="res://Game Sounds/life_won.mp3"
+dest_files=["res://.godot/imported/life_won.mp3-27931b358cfb828215bc066a6d454018.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

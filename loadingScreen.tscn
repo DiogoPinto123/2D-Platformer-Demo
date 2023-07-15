@@ -1,0 +1,71 @@
+[gd_scene load_steps=7 format=3 uid="uid://cywjeitivfou6"]
+
+[ext_resource type="Script" path="res://loadingScreen.gd" id="1_p0mx8"]
+[ext_resource type="Texture2D" uid="uid://bsdxgifq2mf8v" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/sprites/player/idle/player-idle-1.png" id="2_ough7"]
+[ext_resource type="Script" path="res://Level.gd" id="2_ute5v"]
+[ext_resource type="Script" path="res://Lives.gd" id="3_nijvo"]
+[ext_resource type="AudioStream" uid="uid://mfy3t80dedca" path="res://Game Sounds/game_start.mp3" id="5_p6xlk"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_20yow"]
+
+[node name="LoadingScreen" type="CanvasLayer"]
+script = ExtResource("1_p0mx8")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="Level" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -78.5
+offset_top = -4.0
+offset_right = 89.5
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Level 1"
+script = ExtResource("2_ute5v")
+
+[node name="Lives" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1.5
+offset_top = 84.0
+offset_right = 73.5
+offset_bottom = 156.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "x 3"
+script = ExtResource("3_nijvo")
+
+[node name="Fox" type="Sprite2D" parent="."]
+position = Vector2(537.5, 424)
+scale = Vector2(3, 3)
+texture = ExtResource("2_ough7")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
+[node name="LevelPreview" type="Sprite2D" parent="."]
+position = Vector2(576, 192)
+scale = Vector2(0.3, 0.3)
+texture = SubResource("CompressedTexture2D_20yow")
+region_enabled = true
+region_rect = Rect2(0, 0, 1280, 720)
+
+[node name="LoadingSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_p6xlk")
+volume_db = 2.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bxeqkoewltodn"
+path="res://.godot/imported/overworld.mp3-bd7129aaeb464633aaec6397df6f11d3.mp3str"
+
+[deps]
+
+source_file="res://Game Sounds/overworld.mp3"
+dest_files=["res://.godot/imported/overworld.mp3-bd7129aaeb464633aaec6397df6f11d3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
